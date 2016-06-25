@@ -10,6 +10,9 @@ import UIKit
 
 class HBTabBar: UITabBar {
 
+    // ①.定义闭包
+    var composeBtnClosure: (()->())?
+
     // MARK: - 添加子控件
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,8 +57,10 @@ class HBTabBar: UITabBar {
         return btn
     }()
 
-    // 私有方法, 运行过程中其它类找不到. 用'@objc关键字'
+    // 私有方法, 运行过程中其它类找不到. 用'@objc'关键字
     @objc private func composeBtnClick(btn: UIButton) {
         printLog("composeBtnClick")
+        // ②.调用闭包
+        composeBtnClosure?()
     }
 }
