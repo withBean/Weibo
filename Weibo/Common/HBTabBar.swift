@@ -21,15 +21,26 @@ class HBTabBar: UITabBar {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - 布局
+    // MARK: - 布局子控件
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        var index: Int  // 索引, 用于记录子控件x
-        let itemW = bounds.width / 5
-        let itemH = bounds.height
+        var index: Int = 0  // 索引, 用于记录子控件x
+        let btnW = bounds.width / 5
+        let btnH = bounds.height
+        // 遍历, 改变btn位置
+        for subview in subviews {
 
-        composeBtn.frame = CGRectMake(2 * itemW, 0, itemW, itemH)
+            /* UITabBarButton 是系统的私有类, 不对外公开 isKindOfClass 用于判断 是不是 这个类 */
+            if subview.isKindOfClass(NSClassFromString("UITabBarButton")!) {
+                subview.frame = CGRectMake(CGFloat(index) * btnW, 0, btnW, btnH)
+                index++
+
+                if index == 2 { index++ }   // 第三个位置空出来, 放"+"按钮
+            }
+        }
+
+        composeBtn.frame = CGRectMake(2 * btnW, 0, btnW, btnH)
     }
 
     // MARK: - 懒加载控件
