@@ -15,6 +15,7 @@
 		266167BD1D1EA5C400F99262 /* HBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167AD1D1EA5C400F99262 /* HBHomeViewController.swift */; };
 		266167BE1D1EA5C400F99262 /* HBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167B01D1EA5C400F99262 /* HBMessageViewController.swift */; };
 		266167BF1D1EA5C400F99262 /* HBSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167B21D1EA5C400F99262 /* HBSettingViewController.swift */; };
+		266167C11D1EA6ED00F99262 /* HBConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167C01D1EA6ED00F99262 /* HBConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		266167AD1D1EA5C400F99262 /* HBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBHomeViewController.swift; sourceTree = "<group>"; };
 		266167B01D1EA5C400F99262 /* HBMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBMessageViewController.swift; sourceTree = "<group>"; };
 		266167B21D1EA5C400F99262 /* HBSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSettingViewController.swift; sourceTree = "<group>"; };
+		266167C01D1EA6ED00F99262 /* HBConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				266167A11D1EA5C400F99262 /* HBTabBarController.swift */,
+				266167C01D1EA6ED00F99262 /* HBConstant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				266167BC1D1EA5C400F99262 /* HBFindViewController.swift in Sources */,
 				2661678D1D1EA30D00F99262 /* AppDelegate.swift in Sources */,
 				266167BF1D1EA5C400F99262 /* HBSettingViewController.swift in Sources */,
+				266167C11D1EA6ED00F99262 /* HBConstant.swift in Sources */,
 				266167BD1D1EA5C400F99262 /* HBHomeViewController.swift in Sources */,
 				266167BE1D1EA5C400F99262 /* HBMessageViewController.swift in Sources */,
 			);
