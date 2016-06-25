@@ -20,8 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = HBTabBarController()
         self.window?.makeKeyAndVisible()
 
+        // 设置navBar 和 tabBar 外观
+        setAppearance()
+
         return true
     }
+
+    private func setAppearance() {
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
