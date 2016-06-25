@@ -22,6 +22,10 @@ class HBTabBarController: UITabBarController {
         // 添加子控制器
         addChildViewController()
 
+        // KVC -- 运行时机制, 只读属性甚至私有属性都可以通过KVC赋值
+        let myTabBar = HBTabBar()
+        setValue(myTabBar, forKey: "tabBar")    // 注意: key值
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -16,6 +16,7 @@
 		266167BE1D1EA5C400F99262 /* HBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167B01D1EA5C400F99262 /* HBMessageViewController.swift */; };
 		266167BF1D1EA5C400F99262 /* HBSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167B21D1EA5C400F99262 /* HBSettingViewController.swift */; };
 		266167C11D1EA6ED00F99262 /* HBConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167C01D1EA6ED00F99262 /* HBConstant.swift */; };
+		266167C31D1EA70F00F99262 /* HBTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167C21D1EA70F00F99262 /* HBTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		266167B01D1EA5C400F99262 /* HBMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBMessageViewController.swift; sourceTree = "<group>"; };
 		266167B21D1EA5C400F99262 /* HBSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSettingViewController.swift; sourceTree = "<group>"; };
 		266167C01D1EA6ED00F99262 /* HBConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBConstant.swift; sourceTree = "<group>"; };
+		266167C21D1EA70F00F99262 /* HBTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				266167A11D1EA5C400F99262 /* HBTabBarController.swift */,
+				266167C21D1EA70F00F99262 /* HBTabBar.swift */,
 				266167C01D1EA6ED00F99262 /* HBConstant.swift */,
 			);
 			path = Common;
@@ -315,6 +318,7 @@
 				266167C11D1EA6ED00F99262 /* HBConstant.swift in Sources */,
 				266167BD1D1EA5C400F99262 /* HBHomeViewController.swift in Sources */,
 				266167BE1D1EA5C400F99262 /* HBMessageViewController.swift in Sources */,
+				266167C31D1EA70F00F99262 /* HBTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
