@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HBMessageViewController: UIViewController {
+class HBMessageViewController: HBBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HBFindViewController: UIViewController {
+class HBFindViewController: HBBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

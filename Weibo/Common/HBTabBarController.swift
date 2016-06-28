@@ -40,6 +40,14 @@ class HBTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
     }
 
+    /// 重载 -- 抽取无参函数
+    func addChildViewController() {
+        addChildViewController(HBHomeViewController(), title: "首页", image: "tabbar_home")
+        addChildViewController(HBMessageViewController(), title: "消息", image: "tabbar_message_center")
+        addChildViewController(HBFindViewController(), title: "发现", image: "tabbar_discover")
+        addChildViewController(HBSettingViewController(), title: "设置", image: "tabbar_profile")
+    }
+
     /// 重载 -- 添加childVc
     func addChildViewController(childController: UIViewController, title: String, image: String) {
         childController.title = title
@@ -47,13 +55,5 @@ class HBTabBarController: UITabBarController {
         childController.tabBarItem.selectedImage = UIImage(named: "\(image)_highlighted")
 
         addChildViewController(UINavigationController(rootViewController: childController))
-    }
-
-    /// 重载 -- 抽取无参函数
-    func addChildViewController() {
-        addChildViewController(HBHomeViewController(), title: "首页", image: "tabbar_home")
-        addChildViewController(HBMessageViewController(), title: "消息", image: "tabbar_message_center")
-        addChildViewController(HBFindViewController(), title: "发现", image: "tabbar_discover")
-        addChildViewController(HBSettingViewController(), title: "设置", image: "tabbar_profile")
     }
 }

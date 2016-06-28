@@ -14,6 +14,7 @@ class HBTabBar: UITabBar {
     var composeBtnClosure: (()->())?
 
     // MARK: - 添加子控件
+    // init(frame:) -- 是 UIView的指定构造方法
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(composeBtn)
@@ -34,7 +35,7 @@ class HBTabBar: UITabBar {
         // 遍历, 改变btn位置
         for subview in subviews {
 
-            /* UITabBarButton 是系统的私有类, 不对外公开 isKindOfClass 用于判断 是不是 这个类 */
+            /* UITabBarButton 是系统的私有类, 不对外公开; isKindOfClass 用于判断是不是这个类 */
             if subview.isKindOfClass(NSClassFromString("UITabBarButton")!) {
                 subview.frame = CGRectMake(CGFloat(index) * btnW, 0, btnW, btnH)
                 index++
