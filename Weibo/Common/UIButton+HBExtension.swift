@@ -46,12 +46,12 @@ extension UIButton {
         self.backgroundColor = backgroundColor
     }
 
-    convenience init(title: String, image: String, textColor: UIColor) {
+    convenience init(title: String, titleColor: UIColor, image: String) {
         self.init()
 
         self.setTitle(title, forState: .Normal)
         self.setImage(UIImage(named: image), forState: .Normal)
-        self.setTitleColor(textColor, forState: .Normal)
+        self.setTitleColor(titleColor, forState: .Normal)
     }
 
 }

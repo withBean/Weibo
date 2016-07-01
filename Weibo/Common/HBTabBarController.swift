@@ -33,6 +33,9 @@ class HBTabBarController: UITabBarController {
         // ③.调用闭包
         myTabBar.composeBtnClosure = {
             printLog("composeBtnClosure, 闭包回调, 弹出视窗")
+            let composeView = HBComposeView()
+            self.view.addSubview(composeView)
+            composeView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight)
         }
     }
 

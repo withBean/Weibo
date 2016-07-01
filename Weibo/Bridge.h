@@ -10,5 +10,7 @@
 #define Bridge_h
 
 #import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "SVProgressHUD.h"
 
 #endif /* Bridge_h */
