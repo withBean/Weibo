@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263F007B1D22477D00A446E8 /* UIButton+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F00791D22477D00A446E8 /* UIButton+HBExtension.swift */; };
+		263F007C1D22477D00A446E8 /* UILabel+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F007A1D22477D00A446E8 /* UILabel+HBExtension.swift */; };
 		2661678D1D1EA30D00F99262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661678C1D1EA30D00F99262 /* AppDelegate.swift */; };
 		266167921D1EA30D00F99262 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266167901D1EA30D00F99262 /* Main.storyboard */; };
 		266167941D1EA30D00F99262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266167931D1EA30D00F99262 /* Assets.xcassets */; };
@@ -57,9 +59,12 @@
 		2661685E1D1EB3B100F99262 /* ViewController+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266168511D1EB3B100F99262 /* ViewController+SnapKit.swift */; };
 		26C2D0511D1EB7730068B6FE /* HBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */; };
 		26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */; };
+		26EF102C1D2657DB009783F4 /* UIImage+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF102B1D2657DB009783F4 /* UIImage+HBExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		263F00791D22477D00A446E8 /* UIButton+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+HBExtension.swift"; sourceTree = "<group>"; };
+		263F007A1D22477D00A446E8 /* UILabel+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+HBExtension.swift"; sourceTree = "<group>"; };
 		266167891D1EA30D00F99262 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2661678C1D1EA30D00F99262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		266167911D1EA30D00F99262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +145,7 @@
 		266168511D1EB3B100F99262 /* ViewController+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+SnapKit.swift"; sourceTree = "<group>"; };
 		26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBBaseTableViewController.swift; sourceTree = "<group>"; };
 		26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBVisitorView.swift; sourceTree = "<group>"; };
+		26EF102B1D2657DB009783F4 /* UIImage+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HBExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,9 @@
 				266167C21D1EA70F00F99262 /* HBTabBar.swift */,
 				266167C01D1EA6ED00F99262 /* HBConstant.swift */,
 				26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */,
+				263F007A1D22477D00A446E8 /* UILabel+HBExtension.swift */,
+				263F00791D22477D00A446E8 /* UIButton+HBExtension.swift */,
+				26EF102B1D2657DB009783F4 /* UIImage+HBExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -521,6 +530,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				266167EC1D1EB0B000F99262 /* UIImage+GIF.m in Sources */,
+				263F007C1D22477D00A446E8 /* UILabel+HBExtension.swift in Sources */,
+				263F007B1D22477D00A446E8 /* UIButton+HBExtension.swift in Sources */,
 				266167E51D1EB0B000F99262 /* SDWebImageCompat.m in Sources */,
 				266168591D1EB3B100F99262 /* EdgeInsets.swift in Sources */,
 				2661685E1D1EB3B100F99262 /* ViewController+SnapKit.swift in Sources */,
@@ -529,6 +540,7 @@
 				266168571D1EB3B100F99262 /* ConstraintRelation.swift in Sources */,
 				266167F01D1EB0B000F99262 /* UIView+WebCacheOperation.m in Sources */,
 				26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */,
+				26EF102C1D2657DB009783F4 /* UIImage+HBExtension.swift in Sources */,
 				266168261D1EB1F300F99262 /* SVProgressHUD.m in Sources */,
 				266167EA1D1EB0B000F99262 /* SDWebImagePrefetcher.m in Sources */,
 				2661685C1D1EB3B100F99262 /* SourceLocation.swift in Sources */,
