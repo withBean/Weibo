@@ -11,11 +11,11 @@ import UIKit
 class HBBaseTableViewController: UITableViewController {
 
     var isLogin: Bool = false
+    let visitorView = HBVisitorView()   // 定义为成员变量, 便于childVc调用并更改设置
 
     // 控制器的生命周期 loadView 方法 (创建一个视图)
     // 1. 若不调用super.loadView(), 视图是黑的, 且是一个死循环
     // 2. 不调用super, 但当一个视图填充整个控制器, 可指定一个view
-    let visitorView = HBVisitorView()   // 防外边, 便于其它vc调用, 更改设置
     override func loadView() {
         if isLogin {
             super.loadView()

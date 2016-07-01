@@ -37,7 +37,7 @@ class HBVisitorView: UIView {
         addSubview(rollingImgView)
         addSubview(maskImgView)
         addSubview(houseImgView)    // 后添加house, 就不会被遮住了
-        addSubview(noticeLbl)
+        addSubview(messageLbl)
         addSubview(registerBtn)
         addSubview(loginBtn)
 
@@ -50,19 +50,19 @@ class HBVisitorView: UIView {
         maskImgView.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(self)
         }
-        noticeLbl.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(houseImgView.snp_bottom).offset(20)
+        messageLbl.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(maskImgView.snp_bottom).offset(10)     // 素材中, house太小, 故以其它的作参考
             make.centerX.equalTo(self)
             make.width.equalTo(216)
         }
         registerBtn.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(noticeLbl.snp_bottom).offset(10)
-            make.left.equalTo(noticeLbl)
+            make.top.equalTo(messageLbl.snp_bottom).offset(10)
+            make.left.equalTo(messageLbl)
             make.width.equalTo(100)
         }
         loginBtn.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(registerBtn)
-            make.right.equalTo(noticeLbl)
+            make.right.equalTo(messageLbl)
             make.width.equalTo(100)
         }
     }
@@ -86,6 +86,21 @@ class HBVisitorView: UIView {
         rollingImgView.layer.addAnimation(anim, forKey: "HBVisitorViewRollingImgView")  // or nil
     }
 
+    // MARK: - 供其它控制器修改本访客视图属性
+    func setupVisitorViewInfo(image: String, message: String, isRolling: Bool) {
+        houseImgView.image = UIImage(named: image)
+        messageLbl.text = message
+
+        if isRolling {
+            rollingImgView.hidden = false
+            maskImgView.hidden = false
+            startAnimation()
+        } else {
+            rollingImgView.hidden = true
+            maskImgView.hidden = true
+        }
+    }
+
     // 3. 懒加载子控件 (此处以首页为例, 可后期修改)
     // 小房子
     private lazy var houseImgView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
@@ -96,7 +111,7 @@ class HBVisitorView: UIView {
     // 蒙层 (图片, 遮盖旋转下半部)
     private lazy var maskImgView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
 
-    private lazy var noticeLbl: UILabel = UILabel(text: "关注一些人, 回这里看看有什么惊喜", fontSize: 15.0, textColor: UIColor.darkGrayColor(), textAlignment: .Center, numberOfLines: 0)
+    private lazy var messageLbl: UILabel = UILabel(text: "关注一些人, 回这里看看有什么惊喜", fontSize: 15.0, textColor: UIColor.darkGrayColor(), textAlignment: .Center, numberOfLines: 0)
 
 //    private lazy var registerBtn: UIButton = UIButton(title: "注 册", titleColor: .orangeColor(), image: "", backgroundImage: "common_button_white_disable", backgroundColor: UIColor.clearColor(), target: "registerBtnClick:")    // 事件有问题
 
