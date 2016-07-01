@@ -34,9 +34,9 @@ class HBVisitorView: UIView {
 
     // 2. 定义方法, 添加和布局子控件
     private func setupUI() {
-        addSubview(houseImgView)
         addSubview(rollingImgView)
         addSubview(maskImgView)
+        addSubview(houseImgView)    // 后添加house, 就不会被遮住了
         addSubview(noticeLbl)
         addSubview(registerBtn)
         addSubview(loginBtn)
@@ -51,7 +51,7 @@ class HBVisitorView: UIView {
             make.center.equalTo(self)
         }
         noticeLbl.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(houseImgView.snp_bottom).offset(10)
+            make.top.equalTo(houseImgView.snp_bottom).offset(20)
             make.centerX.equalTo(self)
             make.width.equalTo(216)
         }
@@ -74,6 +74,16 @@ class HBVisitorView: UIView {
 
     @objc private func loginBtnClick(btn: UIButton) {
         delegate?.didLogin()
+    }
+
+    // MARK: - 动画 (CABasicAnimation)
+    func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")  // 注意!
+        anim.toValue = M_PI * 2
+        anim.duration = 10.0
+        anim.repeatCount = MAXFLOAT
+        anim.removedOnCompletion = false    // 防止切换视图时动画停止
+        rollingImgView.layer.addAnimation(anim, forKey: "HBVisitorViewRollingImgView")  // or nil
     }
 
     // 3. 懒加载子控件 (此处以首页为例, 可后期修改)

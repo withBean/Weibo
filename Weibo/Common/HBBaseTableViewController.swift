@@ -22,6 +22,8 @@ class HBBaseTableViewController: UITableViewController {
         } else {
             // 显示访客视图
             view = visitorView
+            visitorView.startAnimation()
+            
             // <5> 设置代理
             visitorView.delegate = self
 
@@ -40,7 +42,7 @@ class HBBaseTableViewController: UITableViewController {
     }
 }
 
-// 隔离代码用
+// extension此处隔离代码用
 // <4> 遵守协议
 extension HBBaseTableViewController: HBVisitorViewDelegate {
 
