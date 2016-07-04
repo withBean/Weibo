@@ -61,14 +61,46 @@ class HBOauthViewModel: NSObject {
 
             // 问题: AnyObject? 不能放在字典里
             // 解决思路: 对 AnyObject? 进行转换
-            if let jsonDict = JSON as? [String : AnyObject] {
-                let model = HBUserModel(dict: jsonDict)
-                printLog(model.access_token)
+            guard let jsonDict = JSON as? [String : AnyObject] else {
+                return
             }
+            let model = HBUserModel(dict: jsonDict)
+            printLog(model.access_token)
+
+            // 调用方法
+            self.loadUserInfo(model, infoSuccess: success, infoFailure: failure)
 
             }) { (error) -> Void in
                 printLog(error)
                 failure()
+        }
+    }
+
+    /*
+    access_token	true	string	采用OAuth授权方式为必填参数，OAuth授权后获得。
+    uid	false	int64	需要查询的用户ID。
+    screen_name	false	string	需要查询的用户昵称。
+    */
+    // MARK: - 通过token获取用户信息
+    func loadUserInfo(model: HBUserModel, infoSuccess: ()->(), infoFailure: ()->()) {
+        guard let access_token = model.access_token, uid = model.uid else {
+            return
+        }
+        let params = ["access_token" : access_token, "uid" : uid]   // 为什么此处uid为非必须, 不传入则请求失败
+
+        HBHTTPClient.request(.GET, URLString: "https://api.weibo.com/2/users/show.json", parameters: params, success: { (JSON) -> Void in
+            printLog(JSON)
+            infoSuccess()
+
+            if let jsonDict = JSON as? [String : AnyObject] {
+                let model = HBUserModel(dict: jsonDict)
+                printLog("\(model.screen_name)\n\(model.profile_image_url)")
+            }
+            printLog(model)
+
+            }) { (error) -> Void in
+                printLog(error)
+                infoFailure()
         }
     }
 }
