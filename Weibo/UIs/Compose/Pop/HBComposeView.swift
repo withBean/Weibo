@@ -17,6 +17,9 @@ enum ComposeAnimationType: Int {
 
 class HBComposeView: UIView {
 
+    // (1) 定义成员变量vc, 用来接收控制器 (以便跳转到其它vc)
+    var viewController: UIViewController?
+
     // 存放按钮, 方便管理
     private lazy var composeBtns: [UIButton] = [UIButton]()
 
@@ -117,7 +120,7 @@ class HBComposeView: UIView {
 //        button.pop_addAnimation(anim, forKey: nil)
     }
 
-    private func showButtonAnimation() {
+    private func showComposeButtonAnimation() {
         // 遍历设置动画
         for (index, button) in composeBtns.enumerate() {
             buttonSpringAnimation(button, time: CACurrentMediaTime() + 0.05 * Double(index), type: .Up)
@@ -125,9 +128,15 @@ class HBComposeView: UIView {
     }
 
     // 提供的对外接口, 类方法
-    class func showButtonAnimation() {
+    class func addComposeViewWithButtonAnimation(targetVC: UIViewController) {
+        // 添加本view
+        let composeView = HBComposeView()
+        targetVC.view.addSubview(composeView)
+        composeView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+        composeView.showComposeButtonAnimation()
 
-        HBComposeView().showButtonAnimation()
+        // 对象传值, 以便跳转到其它vc
+        composeView.viewController = targetVC
     }
 
     private lazy var bgImgView: UIImageView = {
