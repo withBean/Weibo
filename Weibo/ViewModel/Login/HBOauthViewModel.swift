@@ -31,11 +31,18 @@ class HBOauthViewModel: NSObject {
     // 定义为单例, 方便外界调用, 同时返回的数据指向同一块内存区域
     static let sharedInstance: HBOauthViewModel = HBOauthViewModel()
 
+    // 第一次赋值 -- 网络请求时
+    // 第二次赋值 -- 读取解档方法
     var userModel: HBUserModel?
 
     // 直接把userModel的属性access_token放在viewModel中, 方便用户调用
     var access_token: String? {
         return userModel?.access_token
+    }
+
+    // 初始化方法里, 解档, 读取数据
+    override init() {
+        userModel = HBUserModel.readUserInfo()
     }
 
     // MARK: - 用code来获取token
@@ -50,8 +57,8 @@ class HBOauthViewModel: NSObject {
         ]
         
         HBHTTPClient.request(.POST, URLString: "https://api.weibo.com/oauth2/access_token", parameters: params, success: { (JSON) -> Void in
-            printLog(JSON)
-            success()
+//            printLog(JSON)
+//            success()
             /*
             "access_token" = "2.00rKqTjCXublFD887f1561155P8HSB";
             "expires_in" = 157679999;
@@ -89,14 +96,20 @@ class HBOauthViewModel: NSObject {
         let params = ["access_token" : access_token, "uid" : uid]   // 为什么此处uid为非必须, 不传入则请求失败
 
         HBHTTPClient.request(.GET, URLString: "https://api.weibo.com/2/users/show.json", parameters: params, success: { (JSON) -> Void in
-            printLog(JSON)
-            infoSuccess()
+//            printLog(JSON)
+//            infoSuccess()
 
-            if let jsonDict = JSON as? [String : AnyObject] {
-                let model = HBUserModel(dict: jsonDict)
-                printLog("\(model.screen_name)\n\(model.profile_image_url)")
+            guard let jsonDict = JSON as? [String : AnyObject] else {
+                return
             }
-            printLog(model)
+            let model = HBUserModel(dict: jsonDict)
+            printLog("\(model.screen_name)\n\(model.profile_image_url)")
+
+            //网络请求成功后, 给model赋值
+            self.userModel = model
+
+            // 归档
+            model.saveUserModel()
 
             }) { (error) -> Void in
                 printLog(error)

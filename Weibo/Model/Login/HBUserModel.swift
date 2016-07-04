@@ -18,7 +18,12 @@ class HBUserModel: NSObject {
 
     var access_token: String?
 //    var expires_in: String?   // 此处文档有误, 如果发现后台返回的数据类型/数据格式/数据字段不够/添加数据字段等等任何关于数据的问题, 应第一时间找后台
-    var expires_in: NSTimeInterval = 0
+    var expires_date: NSDate?   // 定义一个时间, expires_date == 现在时间 + expires_in
+    var expires_in: NSTimeInterval = 0 {
+        didSet {
+            expires_date = NSDate(timeIntervalSinceNow: expires_in)
+        }
+    }
     var remind_in: String?
     var uid: String?
     var screen_name: String?
@@ -30,6 +35,57 @@ class HBUserModel: NSObject {
         setValuesForKeysWithDictionary(dict)
     }
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    }
+
+    // MARK: - 归档和解档
+    // encode, 对象转换为二进制文件
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(access_token, forKey: "access_token")
+        aCoder.encodeObject(expires_in, forKey: "expires_in")
+        aCoder.encodeObject(remind_in, forKey: "remind_in")
+        aCoder.encodeObject(uid, forKey: "uid")
+        aCoder.encodeObject(screen_name, forKey: "screen_name")
+        aCoder.encodeObject(profile_image_url, forKey: "profile_image_url")
+    }
+
+    // decode, 二进制文件转换为对象
+    required init?(coder aDecoder: NSCoder) {
+        access_token = aDecoder.decodeObjectForKey("access_token") as? String
+        expires_in = aDecoder.decodeObjectForKey("expires_in") as? NSTimeInterval ?? 0
+        remind_in = aDecoder.decodeObjectForKey("remind_in") as? String
+        uid = aDecoder.decodeObjectForKey("uid") as? String
+        screen_name = aDecoder.decodeObjectForKey("screen_name") as? String
+        profile_image_url = aDecoder.decodeObjectForKey("profile_image_url") as? String
+    }
+
+    // Archiver
+    func saveUserModel() {
+        // 拼接文件路径   // stringbyappending 是NSString的方法,我们需要把 String 转换成NSString
+        let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last!
+        let filePath = (docPath as NSString).stringByAppendingPathComponent("userInfo.plist")
+        // 归档
+        NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
+    }
+
+    // unarchiver, 类方法方便调用
+    class func readUserInfo() -> HBUserModel? {
+        let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last!
+        let filePath = (docPath as NSString).stringByAppendingPathComponent("userInfo.plist")
+        // 解档
+        let model = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? HBUserModel
+
+        // 时效性判断 
+        // 定义一个时间, expires_date == 现在时间 + expires_in
+        // (若expires_date > 当前时间, 降序, 说明在有效期内)
+        if let date = model?.expires_date {
+            if date.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                return model
+            } else {
+                return nil
+            }
+        }
+
+        return model
     }
 }
 
