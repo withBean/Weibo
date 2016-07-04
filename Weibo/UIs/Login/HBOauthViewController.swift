@@ -66,6 +66,17 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
                     let code = queryString.substringFromIndex(startIndex)
                     printLog(code)
                     // cc773071fb5225fb71604f48dbbf7084
+
+                    // 通过code获取token
+                    let webSuccess = {
+                        printLog("请求成功")
+                        self.backItemClick()    // dismiss
+                    }
+                    let webFailure = {
+                        printLog("请求失败")
+                    }
+                    HBOauthViewModel.sharedInstance.loadToken(code, success: webSuccess, failure: webFailure)
+                    return false                // 不显示回调页面, 跳转到欢迎页面或其它
                 }
             }
         }

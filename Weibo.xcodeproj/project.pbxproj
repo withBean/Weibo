@@ -60,6 +60,8 @@
 		26664BEA1D2A1253001CA5F1 /* HBComposeTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26664BE91D2A1253001CA5F1 /* HBComposeTextController.swift */; };
 		26664BEC1D2A2F3C001CA5F1 /* HBOauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26664BEB1D2A2F3C001CA5F1 /* HBOauthViewController.swift */; };
 		26664BEE1D2A3EEC001CA5F1 /* HBHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26664BED1D2A3EEC001CA5F1 /* HBHTTPClient.swift */; };
+		26664BF01D2A4C41001CA5F1 /* HBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26664BEF1D2A4C41001CA5F1 /* HBUserModel.swift */; };
+		26664BF21D2A4DA5001CA5F1 /* HBOauthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26664BF11D2A4DA5001CA5F1 /* HBOauthViewModel.swift */; };
 		26C2D0511D1EB7730068B6FE /* HBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */; };
 		26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */; };
 		26D4682A1D268577007849B3 /* HBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D468291D268577007849B3 /* HBComposeView.swift */; };
@@ -152,6 +154,8 @@
 		26664BE91D2A1253001CA5F1 /* HBComposeTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBComposeTextController.swift; sourceTree = "<group>"; };
 		26664BEB1D2A2F3C001CA5F1 /* HBOauthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOauthViewController.swift; sourceTree = "<group>"; };
 		26664BED1D2A3EEC001CA5F1 /* HBHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBHTTPClient.swift; sourceTree = "<group>"; };
+		26664BEF1D2A4C41001CA5F1 /* HBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBUserModel.swift; sourceTree = "<group>"; };
+		26664BF11D2A4DA5001CA5F1 /* HBOauthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOauthViewModel.swift; sourceTree = "<group>"; };
 		26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBBaseTableViewController.swift; sourceTree = "<group>"; };
 		26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBVisitorView.swift; sourceTree = "<group>"; };
 		26D468291D268577007849B3 /* HBComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBComposeView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		266167A51D1EA5C400F99262 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				26664BEF1D2A4C41001CA5F1 /* HBUserModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 		266167B61D1EA5C400F99262 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				26664BF11D2A4DA5001CA5F1 /* HBOauthViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -601,6 +607,7 @@
 				266168581D1EB3B100F99262 /* Debugging.swift in Sources */,
 				266168531D1EB3B100F99262 /* ConstraintAttributes.swift in Sources */,
 				266168031D1EB0CF00F99262 /* AFURLResponseSerialization.m in Sources */,
+				26664BF21D2A4DA5001CA5F1 /* HBOauthViewModel.swift in Sources */,
 				2661685B1D1EB3B100F99262 /* SnapKit.swift in Sources */,
 				266168231D1EB1F300F99262 /* SVIndefiniteAnimatedView.m in Sources */,
 				2661685D1D1EB3B100F99262 /* View+SnapKit.swift in Sources */,
@@ -618,6 +625,7 @@
 				266168241D1EB1F300F99262 /* SVProgressAnimatedView.m in Sources */,
 				266167E41D1EB0B000F99262 /* SDImageCache.m in Sources */,
 				266168521D1EB3B100F99262 /* Constraint.swift in Sources */,
+				26664BF01D2A4C41001CA5F1 /* HBUserModel.swift in Sources */,
 				266168541D1EB3B100F99262 /* ConstraintDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
