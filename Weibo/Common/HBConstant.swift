@@ -30,6 +30,17 @@ func printLog<T>(message: T,
     }
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 开发账号相关 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+// MARK:--申请的账号信息
+let AppKey = "2833627325"
+let AppSecret = "cc0d89ccb25713565650ab18898e3d82"
+let AppRedirectURI = "https://github.com/withBean"
+// 取消授权回调页：http://weibo.com/troiscouleurs
+
+// 用于申请的开发者信息
+let userId = "troiscouleurs@163.com"
+let passWd = "weiOu@423622"
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 我的工具 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 

@@ -49,6 +49,9 @@ extension HBBaseTableViewController: HBVisitorViewDelegate {
     // <6> 实现代理方法
     func didRegister() {
         printLog("register item/btn click")
+
+        let nav = UINavigationController(rootViewController: HBOauthViewController())
+        presentViewController(nav, animated: true, completion: nil)
     }
 
     func didLogin() {

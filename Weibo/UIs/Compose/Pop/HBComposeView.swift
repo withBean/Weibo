@@ -64,6 +64,7 @@ class HBComposeView: UIView {
             button.frame = CGRectMake(btnX, btnY, btnW, btnH)
 
             button.addTarget(self, action: "composeBtnClick:", forControlEvents: .TouchUpInside)
+//            bgImgView.userInteractionEnabled = true
 //            bgImgView.addSubview(button)
             addSubview(button)
             composeBtns.append(button)
@@ -89,7 +90,6 @@ class HBComposeView: UIView {
                 let nav = UINavigationController(rootViewController: HBComposeTextController())
                 self.viewController?.presentViewController(nav, animated: true, completion: nil)
         }
-
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
