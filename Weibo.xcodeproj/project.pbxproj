@@ -61,6 +61,7 @@
 		26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */; };
 		26D4682A1D268577007849B3 /* HBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D468291D268577007849B3 /* HBComposeView.swift */; };
 		26D4682C1D26858D007849B3 /* HBComposeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4682B1D26858D007849B3 /* HBComposeButton.swift */; };
+		26D468301D269EEF007849B3 /* composeBtn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26D4682F1D269EEF007849B3 /* composeBtn.plist */; };
 		26EF102C1D2657DB009783F4 /* UIImage+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF102B1D2657DB009783F4 /* UIImage+HBExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBVisitorView.swift; sourceTree = "<group>"; };
 		26D468291D268577007849B3 /* HBComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBComposeView.swift; sourceTree = "<group>"; };
 		26D4682B1D26858D007849B3 /* HBComposeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBComposeButton.swift; sourceTree = "<group>"; };
+		26D4682F1D269EEF007849B3 /* composeBtn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = composeBtn.plist; sourceTree = "<group>"; };
 		26EF102B1D2657DB009783F4 /* UIImage+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HBExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				266167901D1EA30D00F99262 /* Main.storyboard */,
 				266167931D1EA30D00F99262 /* Assets.xcassets */,
 				266167981D1EA30D00F99262 /* Info.plist */,
+				26D4682F1D269EEF007849B3 /* composeBtn.plist */,
 				266167C41D1EB06200F99262 /* Bridge.h */,
 			);
 			path = Weibo;
@@ -538,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D468301D269EEF007849B3 /* composeBtn.plist in Resources */,
 				266167941D1EA30D00F99262 /* Assets.xcassets in Resources */,
 				266168251D1EB1F300F99262 /* SVProgressHUD.bundle in Resources */,
 				266167921D1EA30D00F99262 /* Main.storyboard in Resources */,

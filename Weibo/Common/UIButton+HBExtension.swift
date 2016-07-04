@@ -44,6 +44,7 @@ extension UIButton {
         self.setImage(UIImage(named: image), forState: .Normal)
         self.setBackgroundImage(UIImage(named: backgroundImage), forState: .Normal)
         self.backgroundColor = backgroundColor
+        self.sizeToFit()
     }
 
     convenience init(title: String, titleColor: UIColor, image: String) {
@@ -52,6 +53,7 @@ extension UIButton {
         self.setTitle(title, forState: .Normal)
         self.setImage(UIImage(named: image), forState: .Normal)
         self.setTitleColor(titleColor, forState: .Normal)
+        self.sizeToFit()
     }
 
 }
