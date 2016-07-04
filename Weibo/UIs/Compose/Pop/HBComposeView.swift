@@ -86,6 +86,8 @@ class HBComposeView: UIView {
 
             }) { (_) -> Void in
                 // 动画完成后进行页面跳转 {通知/代理/闭包, 这里采用对象传值 -- showButtonAnimation中传过来targetVc}
+                let nav = UINavigationController(rootViewController: HBComposeTextController())
+                self.viewController?.presentViewController(nav, animated: true, completion: nil)
         }
 
     }
