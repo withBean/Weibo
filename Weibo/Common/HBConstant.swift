@@ -40,7 +40,7 @@ let AppRedirectURI = "https://github.com/withBean"
 
 // 用于申请的开发者信息
 let userId = "troiscouleurs@163.com"
-let passWd = "weiOu@423622"
+let passwd = "weiOu@423622"
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 我的工具 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 

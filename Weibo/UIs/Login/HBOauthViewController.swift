@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HBOauthViewController: UIViewController {
+class HBOauthViewController: UIViewController, UIWebViewDelegate {
 
     let webView: UIWebView = UIWebView()
 
@@ -30,9 +30,11 @@ class HBOauthViewController: UIViewController {
     private func setupWebView() {
         let client_id = AppKey
         let redirect_uri = AppRedirectURI
+
         let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(client_id)&redirect_uri=\(redirect_uri)")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
+        webView.delegate = self
     }
 
     private func setupNav() {
@@ -45,6 +47,8 @@ class HBOauthViewController: UIViewController {
     }
 
     @objc private func autoFillItemClick() {
-
+        // 执行JavaScript语言 (引号的两种转换方式: 1> 转义; 2> " -> ')
+        let jsString = "document.getElementById('userId').value='\(userId)';document.getElementById('passwd').value='\(passwd)'"
+        webView.stringByEvaluatingJavaScriptFromString(jsString)
     }
 }
