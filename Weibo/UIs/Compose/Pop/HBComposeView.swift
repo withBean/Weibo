@@ -17,7 +17,7 @@ enum ComposeAnimationType: Int {
 
 class HBComposeView: UIView {
 
-    // 存放按钮
+    // 存放按钮, 方便管理
     private lazy var composeBtns: [UIButton] = [UIButton]()
 
     override init(frame: CGRect) {
@@ -69,13 +69,36 @@ class HBComposeView: UIView {
 
     @objc private func composeBtnClick(button: HBComposeButton) {
         printLog("composeBtnClick")
+
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            // 被点击按钮放大, 其它缩小. 同时渐变透明消失
+            for obj in self.composeBtns {
+                obj.alpha = 0.0
+                if obj == button {
+                    obj.transform = CGAffineTransformMakeScale(2.0, 2.0)
+                } else {
+                    obj.transform = CGAffineTransformMakeScale(0.25, 0.25)
+                }
+            }
+
+            }) { (_) -> Void in
+                // 动画完成后进行页面跳转 {通知/代理/闭包, 这里采用对象传值 -- showButtonAnimation中传过来targetVc}
+        }
+
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.removeFromSuperview()
+        // 反向遍历 (与显示时的动画效果相反)
+        for (index, button) in composeBtns.reverse().enumerate() {
+            buttonSpringAnimation(button, time: CACurrentMediaTime() + 0.05 * Double(index), type: .Down)
+        }
+        // 延迟remove, 否则看不到动画效果
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.05 * Double(composeBtns.count) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            self.removeFromSuperview()
+        }
     }
 
-    private func buttonAnimation(button: UIButton, time: CFTimeInterval, type: ComposeAnimationType) {
+    private func buttonSpringAnimation(button: UIButton, time: CFTimeInterval, type: ComposeAnimationType) {
 //        // 创建springAnim
 //        let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
 //        // 修改toValue, 让视图到指定的位置
@@ -95,12 +118,13 @@ class HBComposeView: UIView {
     }
 
     private func showButtonAnimation() {
+        // 遍历设置动画
         for (index, button) in composeBtns.enumerate() {
-            buttonAnimation(button, time: CACurrentMediaTime() + 0.25 * Double(index), type: .Up)
+            buttonSpringAnimation(button, time: CACurrentMediaTime() + 0.05 * Double(index), type: .Up)
         }
     }
 
-    // 提供的带外接口, 类方法
+    // 提供的对外接口, 类方法
     class func showButtonAnimation() {
 
         HBComposeView().showButtonAnimation()
