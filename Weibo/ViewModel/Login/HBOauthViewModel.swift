@@ -105,7 +105,7 @@ class HBOauthViewModel: NSObject {
             let model = HBUserModel(dict: jsonDict)
             printLog("\(model.screen_name)\n\(model.profile_image_url)")
 
-            //网络请求成功后, 给model赋值
+            //网络请求成功后, 给model赋值 (只走一次, 授权成功之后不会再走)
             self.userModel = model
 
             // 归档
