@@ -28,10 +28,7 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
 
     // 加载授权页面
     private func setupWebView() {
-        let client_id = AppKey
-        let redirect_uri = AppRedirectURI
-
-        let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(client_id)&redirect_uri=\(redirect_uri)")
+        let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(AppKey)&redirect_uri=\(AppRedirectURI)")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
         webView.delegate = self
@@ -50,5 +47,29 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
         // 执行JavaScript语言 (引号的两种转换方式: 1> 转义; 2> " -> ')
         let jsString = "document.getElementById('userId').value='\(userId)';document.getElementById('passwd').value='\(passwd)'"
         webView.stringByEvaluatingJavaScriptFromString(jsString)
+    }
+
+    // MARK: - UIWebViewDelegate代理方法获取 code
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        printLog(request.URL)
+        // Optional(https://github.com/withBean?code=d75acf438398ae83048450ddbc12ad26)
+
+        if let urlString = request.URL?.absoluteString {
+            if urlString.hasPrefix(AppRedirectURI) {
+                printLog(urlString)
+                // https://github.com/withBean?code=bb7eb11ef93bb5f5ba8ed25eb1ef4d83
+
+                // 获取code的两种方法: ①'='截取, ②query
+                /* For example, in the URL http://www.example.com/index.php?key1=value1&key2=value2, the query string is key1=value1&key2=value2. */
+                if let queryString = request.URL?.query {
+                    let startIndex = "code=".endIndex
+                    let code = queryString.substringFromIndex(startIndex)
+                    printLog(code)
+                    // cc773071fb5225fb71604f48dbbf7084
+                }
+            }
+        }
+
+        return true
     }
 }
