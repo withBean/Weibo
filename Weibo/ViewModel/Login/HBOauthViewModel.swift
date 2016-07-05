@@ -83,6 +83,7 @@ class HBOauthViewModel: NSObject {
             // 调用方法
             self.loadUserInfo(model, infoSuccess: success, infoFailure: failure)
 
+
             }) { (error) -> Void in
                 printLog(error)
                 failure()
@@ -103,7 +104,6 @@ class HBOauthViewModel: NSObject {
 
         HBHTTPClient.request(.GET, URLString: "https://api.weibo.com/2/users/show.json", parameters: params, success: { (JSON) -> Void in
 //            printLog(JSON)
-//            infoSuccess()
 
             guard let jsonDict = JSON as? [String : AnyObject] else {
                 return
@@ -116,6 +116,9 @@ class HBOauthViewModel: NSObject {
 
             // 归档
             model.saveUserModel()
+
+            // 深度调用完成
+            infoSuccess()
 
             }) { (error) -> Void in
                 printLog(error)
