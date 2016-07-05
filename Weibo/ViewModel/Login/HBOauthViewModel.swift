@@ -6,27 +6,33 @@
 //  Copyright © 2016年 iceWorks. All rights reserved.
 //
 
+/** MVVM的原则:
+1. view和ViewController结合在了一起
+2. view和ViewController不能喝Model进行交互, 需要和viewModel进行交互
+3. viewModel对上需要的View和ViewController交互, 对下需要和Model交互
+
+viewModel放哪些东西?
+1. 和Model打交道
+2. 所有网络请求需要放在这里
+3. 对数据的处理
+*/
+
+/*
+client_id	true	string	申请应用时分配的AppKey。
+client_secret	true	string	申请应用时分配的AppSecret。
+grant_type	true	string	请求的类型，填写authorization_code
+code	true	string	调用authorize获得的code值。
+redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致
+*/
+
 import UIKit
 
-/** MVVM的原则:
- 1. view和ViewController结合在了一起
- 2. view和ViewController不能喝Model进行交互, 需要和viewModel进行交互
- 3. viewModel对上需要的View和ViewController交互, 对下需要和Model交互
-
- viewModel放哪些东西?
- 1. 和Model打交道
- 2. 所有网络请求需要放在这里
- 3. 对数据的处理
- */
-
- /*
- client_id	true	string	申请应用时分配的AppKey。
- client_secret	true	string	申请应用时分配的AppSecret。
- grant_type	true	string	请求的类型，填写authorization_code
- code	true	string	调用authorize获得的code值。
- redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致
- */
 class HBOauthViewModel: NSObject {
+
+    // 把是否登录的逻辑放在oauthViewModel
+    var isLogin: Bool {
+        return userModel?.access_token == nil ? false : true
+    }
 
     // 定义为单例, 方便外界调用, 同时返回的数据指向同一块内存区域
     static let sharedInstance: HBOauthViewModel = HBOauthViewModel()

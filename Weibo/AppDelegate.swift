@@ -16,11 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = HBTabBarController()
+        self.window?.rootViewController = rootVc()
         self.window?.makeKeyAndVisible()
 
         // 设置navBar 和 tabBar 外观
         setAppearance()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "wantToChangeRootVc:", name: kNotificationWantToChangeRootVc, object: nil)
 
         return true
     }
@@ -28,6 +30,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setAppearance() {
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
         UITabBar.appearance().tintColor = UIColor.orangeColor()
+    }
+
+    // 当没有登录的时候, 显示是访客视图(tabBarVc);
+    // 当登录的时候, 显示的是欢迎界面 {欢迎界面完成之后, 是首页}
+    private func rootVc() -> UIViewController {
+        return HBOauthViewModel.sharedInstance.isLogin ? HBWelcomeViewController() : HBTabBarController()
+    }
+
+    // MARK: - 控制器切换控制
+    // 授权成功之后跳转到欢迎界面; 欢迎界面再跳转的是首页
+    @objc private func wantToChangeRootVc(noti: NSNotification) {
+        let vc = noti.object as? UIViewController
+        if vc is HBOauthViewController {
+            window?.rootViewController = HBWelcomeViewController()
+        } else {
+            window?.rootViewController = HBTabBarController()
+        }
+    }
+
+    // 移除通知
+    deinit {    // (此处AppDelegate不走deinit, 但要养成习惯)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     func applicationWillResignActive(application: UIApplication) {

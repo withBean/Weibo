@@ -10,7 +10,7 @@ import UIKit
 
 class HBBaseTableViewController: UITableViewController {
 
-    var isLogin: Bool = false
+    var isLogin: Bool = HBOauthViewModel.sharedInstance.isLogin
     let visitorView = HBVisitorView()   // 定义为成员变量, 便于childVc调用并更改设置
 
     // 控制器的生命周期 loadView 方法 (创建一个视图)

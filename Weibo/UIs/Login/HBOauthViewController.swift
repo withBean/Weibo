@@ -71,6 +71,9 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
                     let webSuccess = {
                         printLog("请求成功")
                         self.backItemClick()    // dismiss
+
+                        // MARK: - 切换根控制器
+                        NSNotificationCenter.defaultCenter().postNotificationName(kNotificationWantToChangeRootVc, object: self, userInfo: nil)
                     }
                     let webFailure = {
                         printLog("请求失败")

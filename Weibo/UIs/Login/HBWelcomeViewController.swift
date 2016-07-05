@@ -70,7 +70,8 @@ class HBWelcomeViewController: UIViewController {
             self.view.layoutIfNeeded()
 
             }) { (_) -> Void in
-                // 跳转控制器
+                // MARK: - 切换根控制器 (多对一用通知)
+                NSNotificationCenter.defaultCenter().postNotificationName(kNotificationWantToChangeRootVc, object: self, userInfo: nil)
         }
     }
 

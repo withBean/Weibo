@@ -42,6 +42,10 @@ let AppRedirectURI = "https://github.com/withBean"
 let userId = "troiscouleurs@163.com"
 let passwd = "weiOu@423622"
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 通知名称 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+let kNotificationWantToChangeRootVc = "kNotificationWantToChangeRootVc"
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 我的工具 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 let kScreenBounds = UIScreen.mainScreen().bounds
