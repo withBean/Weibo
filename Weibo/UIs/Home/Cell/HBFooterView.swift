@@ -68,11 +68,13 @@ class HBFooterView: UIView {
     // MARK: - lazy load
     private lazy var repostBtn: UIButton = UIButton(title: "转发", titleColor: .darkGrayColor(), font: 14.0, image: "timeline_icon_retweet", bgImageNor: "timeline_card_bottom_background", bgImageHigh: "timeline_card_middle_background_highlighted", tag: 0, target: self, method: "repostBtnClick:")
     private lazy var commentBtn: UIButton = UIButton(title: "评论", titleColor: .darkGrayColor(), font: 14.0, image: "timeline_icon_comment", bgImageNor: "timeline_card_bottom_background", bgImageHigh: "timeline_card_middle_background_highlighted", tag: 0, target: self, method: "commentBtnClick:")
-    private lazy var attitudeBtn: UIButton = UIButton(title: "点赞", titleColor: .darkGrayColor(), font: 14.0, image: "timeline_icon_unlike", bgImageNor: "timeline_card_bottom_background", bgImageHigh: "timeline_card_middle_background_highlighted", tag: 0, target: self, method: "attitudeBtnClick:") // 如何解决`CUICatalog: Invalid asset name supplied:`呢? 另外空颜色呢?
+    private lazy var attitudeBtn: UIButton = UIButton(title: "点赞", titleColor: .darkGrayColor(), font: 14.0, image: "timeline_icon_unlike", bgImageNor: "timeline_card_bottom_background", bgImageHigh: "timeline_card_middle_background_highlighted", tag: 0, target: self, method: "attitudeBtnClick:") // 如何解决`CUICatalog: Invalid asset name supplied:`呢? 另外空颜色呢(.clearColor)?
 
+    // 竖向分隔线
     private lazy var line1: UIImageView = UIImageView(image: UIImage(named: "timeline_card_bottom_line_highlighted"))
     private lazy var line2: UIImageView = UIImageView(image: UIImage(named: "timeline_card_bottom_line_highlighted"))
 
+    // btn click
     @objc private func repostBtnClick(btn: UIButton) {
         printLog("repost")
     }

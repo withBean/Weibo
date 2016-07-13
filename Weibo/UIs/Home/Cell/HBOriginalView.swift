@@ -53,7 +53,7 @@ class HBOriginalView: UIView {
             make.width.height.equalTo(40)
         }
         userName.snp_makeConstraints { (make) in
-            make.top.equalTo(userIcon)
+            make.top.equalTo(userIcon).offset(3)
             make.left.equalTo(userIcon.snp_right).offset(cellMargin)
         }
         vipIcon.snp_makeConstraints { (make) in
@@ -61,8 +61,8 @@ class HBOriginalView: UIView {
             make.centerY.equalTo(userName)
         }
         verifyIcon.snp_makeConstraints { (make) in
-            make.centerX.equalTo(userIcon.snp_right)
-            make.centerY.equalTo(userIcon.snp_bottom)
+            make.right.bottom.equalTo(userIcon)
+            make.width.height.equalTo(12.5)
         }
         releaseTime.snp_makeConstraints { (make) in
             make.left.equalTo(userIcon.snp_right).offset(cellMargin)
@@ -86,7 +86,7 @@ class HBOriginalView: UIView {
 
     // MARK: - lazy load
     private lazy var userIcon: UIImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
-    private lazy var userName: UILabel = UILabel(text: "用户昵称", fontSize: 18.0, textColor: .orangeColor(), textAlignment: .Left, numberOfLines: 1)
+    private lazy var userName: UILabel = UILabel(text: "用户昵称", fontSize: 17.0, textColor: .orangeColor(), textAlignment: .Left, numberOfLines: 1)
     private lazy var vipIcon: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership_expired"))  // vip等级图标
     private lazy var verifyIcon: UIImageView = UIImageView(image: UIImage(named: "avatar_grassroot"))             // 认证图标(草根/大V)
     private lazy var releaseTime: UILabel = UILabel(text: "发布时间", fontSize: 13.0, textColor: .grayColor(), textAlignment: .Left, numberOfLines: 1)
