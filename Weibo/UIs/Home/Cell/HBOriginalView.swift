@@ -57,8 +57,8 @@ class HBOriginalView: UIView {
             make.left.equalTo(userIcon.snp_right).offset(cellMargin)
         }
         vipIcon.snp_makeConstraints { (make) in
-            make.top.equalTo(userName)
             make.left.equalTo(userName.snp_right).offset(cellMargin)
+            make.centerY.equalTo(userName)
         }
         verifyIcon.snp_makeConstraints { (make) in
             make.centerX.equalTo(userIcon.snp_right)
@@ -76,6 +76,11 @@ class HBOriginalView: UIView {
             make.top.equalTo(userIcon.snp_bottom).offset(cellMargin)
             make.left.equalTo(self).offset(cellMargin)
             make.right.equalTo(self).offset(-cellMargin)
+        }
+
+        // 自动计算行高 注意底部
+        self.snp_makeConstraints { (make) in
+            make.bottom.equalTo(blogContent.snp_bottom)
         }
     }
 

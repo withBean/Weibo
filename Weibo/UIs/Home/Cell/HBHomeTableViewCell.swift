@@ -37,19 +37,22 @@ class HBHomeTableViewCell: UITableViewCell {
         originalView.snp_makeConstraints { (make) in
             make.top.left.right.equalTo(contentView)
             make.bottom.equalTo(repostView.snp_top)
-            // temp
-            make.height.equalTo(100)
         }
         repostView.snp_makeConstraints { (make) in
             make.left.right.equalTo(contentView)    // 最好将可变约束(此处top/bottom)设置在永久视图上, 以便更新约束
             // temp
-            make.height.equalTo(100)
+//            make.height.equalTo(100)
         }
         footerView.snp_makeConstraints { (make) in
             make.top.equalTo(repostView.snp_bottom)
             make.left.right.bottom.equalTo(contentView)
             // temp
-            make.height.equalTo(100)
+//            make.height.equalTo(100)
+        }
+
+        // 自动计算行高 (contentView, 尤其注意底部)
+        contentView.snp_makeConstraints { (make) in
+            make.edges.equalTo(self)
         }
     }
 
