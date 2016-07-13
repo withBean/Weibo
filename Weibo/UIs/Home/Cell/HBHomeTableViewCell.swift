@@ -16,7 +16,8 @@ class HBHomeTableViewCell: UITableViewCell {
 
     var viewModel: HBStatusCellViewModel? {
         didSet {
-            originalView.originalViewModel = viewModel
+            originalView.viewModel = viewModel
+            footerView.viewModel = viewModel
         }
     }
 

@@ -56,4 +56,18 @@ extension UIButton {
         self.sizeToFit()
     }
 
+    convenience init(title: String, titleColor: UIColor, font: CGFloat, image: String, bgImageNor: String, bgImageHigh: String, tag: Int, target: AnyObject, method: String) {
+        self.init()
+
+        self.setTitle(title, forState: .Normal)
+        self.setTitleColor(titleColor, forState: .Normal)
+        self.titleLabel?.font = UIFont.systemFontOfSize(font)
+        self.setImage(UIImage(named: image), forState: .Normal)
+        self.setBackgroundImage(UIImage(named: bgImageNor), forState: .Normal)
+        self.setBackgroundImage(UIImage(named: bgImageHigh), forState: .Highlighted)
+        self.tag = tag
+        // target千万不要写self
+        self.addTarget(target, action: Selector(method), forControlEvents: .TouchUpInside)
+    }
+
 }

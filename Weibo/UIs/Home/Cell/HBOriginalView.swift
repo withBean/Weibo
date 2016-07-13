@@ -12,15 +12,15 @@ let cellMargin: CGFloat = 10
 
 class HBOriginalView: UIView {
 
-    var originalViewModel: HBStatusCellViewModel? {
+    var viewModel: HBStatusCellViewModel? {
         didSet {
-            userIcon.sd_setImageWithURL(originalViewModel?.userIcon)
-            userName.text = originalViewModel?.userName
-            vipIcon.image = originalViewModel?.vipIcon
-            verifyIcon.image = originalViewModel?.verifyIcon
-            releaseTime.text = originalViewModel?.releaseTime
-            releaseSource.text = originalViewModel?.releaseSource
-            blogContent.text = originalViewModel?.blogContent
+            userIcon.sd_setImageWithURL(viewModel?.userIcon)
+            userName.text = viewModel?.userName
+            vipIcon.image = viewModel?.vipIcon
+            verifyIcon.image = viewModel?.verifyIcon
+            releaseTime.text = viewModel?.releaseTime
+            releaseSource.text = viewModel?.releaseSource
+            blogContent.text = viewModel?.blogContent
         }
     }
 

@@ -64,4 +64,29 @@ class HBStatusCellViewModel: NSObject {
     var blogContent: String? {
         return model?.text
     }
+
+    // MARK: - 底部转发/评论/点赞工具栏数据处理
+    var repostCount: String? {
+        if model?.reposts_count == 0 {
+            return " 转发"    // 来个空格
+        } else {
+            return " \(model?.reposts_count ?? 0)"  // 本来不需解包, 但显示结果为`Optional(12)`
+        }
+    }
+
+    var commentCount: String? {
+        if model?.comments_count == 0 {
+            return " 评论"
+        } else {
+            return " \(model?.comments_count ?? 0)"
+        }
+    }
+
+    var attitudeCount: String? {
+        if model?.attitudes_count == 0 {
+            return " 点赞"
+        } else {
+            return " \(model?.attitudes_count ?? 0)"
+        }
+    }
 }
