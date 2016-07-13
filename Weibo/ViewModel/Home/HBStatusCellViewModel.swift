@@ -89,4 +89,15 @@ class HBStatusCellViewModel: NSObject {
             return " \(model?.attitudes_count ?? 0)"
         }
     }
+
+    // MARK: - 转发微博的数据处理
+    var repostContent: String? {
+//        if let repostUserName: String = model?.retweeted_status?.user?.screen_name ?? "", repostText: String = model?.retweeted_status?.text ?? "" {
+//            return "@" + repostUserName + ":" + repostText    // 没有转发微博时, 仍然显示"@"
+//        }
+        guard let repostUserName: String = model?.retweeted_status?.user?.screen_name, repostText: String = model?.retweeted_status?.text else {
+            return String()
+        }
+        return "@" + repostUserName + ":" + repostText    // 也可 "@\(repostUserName)\(repostText)"
+    }
 }

@@ -18,6 +18,7 @@ class HBHomeTableViewCell: UITableViewCell {
         didSet {
             originalView.viewModel = viewModel
             footerView.viewModel = viewModel
+            repostView.viewModel = viewModel
         }
     }
 
