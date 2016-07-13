@@ -63,7 +63,7 @@ class HBComposeView: UIView {
             let btnY: CGFloat = topMargin + (btnH + margin) * CGFloat(row)
             button.frame = CGRectMake(btnX, btnY, btnW, btnH)
 
-            button.addTarget(self, action: "composeBtnClick:", forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(HBComposeView.composeBtnClick(_:)), forControlEvents: .TouchUpInside)
 //            bgImgView.userInteractionEnabled = true
 //            bgImgView.addSubview(button)
             addSubview(button)

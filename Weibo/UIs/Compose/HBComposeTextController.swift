@@ -21,7 +21,7 @@ class HBComposeTextController: UIViewController {
     }
 
     private func setupNav() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .Plain, target: self, action: "dismissItemClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .Plain, target: self, action: #selector(HBComposeTextController.dismissItemClick))
     }
 
     @objc private func dismissItemClick() {

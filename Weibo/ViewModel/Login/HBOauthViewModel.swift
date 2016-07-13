@@ -108,7 +108,9 @@ class HBOauthViewModel: NSObject {
             guard let jsonDict = JSON as? [String : AnyObject] else {
                 return
             }
-            let model = HBUserModel(dict: jsonDict)
+//            let model = HBUserModel(dict: jsonDict)   // 错误, 新model!!
+            model.screen_name = jsonDict["screen_name"] as? String
+            model.profile_image_url = jsonDict["profile_image_url"] as? String
             printLog("\(model.screen_name)\n\(model.profile_image_url)")
 
             //网络请求成功后, 给model赋值 (只走一次, 授权成功之后不会再走)

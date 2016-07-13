@@ -17,9 +17,9 @@ import UIKit
 ///  - parameter line:     代码行数
 func printLog<T>(message: T,
     logError: Bool = false,
-    file: String = __FILE__,
-    method: String = __FUNCTION__,
-    line: Int = __LINE__)
+    file: String = #file,
+    method: String = #function,
+    line: Int = #line)
 {
     if logError {
         print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
@@ -81,7 +81,7 @@ let IS_IOS8 = (UIDevice.currentDevice().systemVersion as NSString).doubleValue >
 
 //判断是不是plus
 let currentModeSize = UIScreen.mainScreen().currentMode?.size
-let isPlus = UIScreen.instancesRespondToSelector("currentMode") ? CGSizeEqualToSize(CGSizeMake(1242, 2208), currentModeSize!) : false
+let isPlus = UIScreen.instancesRespondToSelector(Selector("currentMode")) ? CGSizeEqualToSize(CGSizeMake(1242, 2208), currentModeSize!) : false
 
 //判断字符串是否为空
 func trimString(str:String)->String{

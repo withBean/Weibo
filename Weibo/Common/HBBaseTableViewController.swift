@@ -37,8 +37,8 @@ class HBBaseTableViewController: UITableViewController {
 
     // 导航栏
     private func setupNav() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "didRegister")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "didLogin")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: #selector(HBBaseTableViewController.didRegister))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: #selector(HBBaseTableViewController.didLogin))
     }
 }
 

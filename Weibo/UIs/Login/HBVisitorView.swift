@@ -120,7 +120,7 @@ class HBVisitorView: UIView {
         btn.setBackgroundImage(UIImage.resizeImageWithImageName("common_button_white_disable"), forState: .Normal)
         btn.setTitle("注 册", forState: .Normal)
         btn.setTitleColor(UIColor.orangeColor(), forState: .Normal)
-        btn.addTarget(self, action: "registerBtnClick:", forControlEvents: .TouchUpInside)
+        btn.addTarget(self, action: #selector(HBVisitorView.registerBtnClick(_:)), forControlEvents: .TouchUpInside)
         return btn
     }()
 
@@ -129,8 +129,7 @@ class HBVisitorView: UIView {
         btn.setBackgroundImage(UIImage.stretchImageWithImageName("common_button_white_disable"), forState: .Normal)
         btn.setTitle("登 录", forState: .Normal)
         btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        btn.addTarget(self, action: "loginBtnClick:", forControlEvents: .TouchUpInside)
+        btn.addTarget(self, action: #selector(HBVisitorView.loginBtnClick(_:)), forControlEvents: .TouchUpInside)
         return btn
     }()
-
 }

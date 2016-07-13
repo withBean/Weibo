@@ -35,8 +35,8 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
     }
 
     private func setupNav() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: "backItemClick")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", style: .Plain, target: self, action: "autoFillItemClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: #selector(HBOauthViewController.backItemClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", style: .Plain, target: self, action: #selector(HBOauthViewController.autoFillItemClick))
     }
 
     @objc private func backItemClick() {

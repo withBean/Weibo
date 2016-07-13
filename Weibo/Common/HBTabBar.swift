@@ -38,9 +38,9 @@ class HBTabBar: UITabBar {
             /* UITabBarButton 是系统的私有类, 不对外公开; isKindOfClass 用于判断是不是这个类 */
             if subview.isKindOfClass(NSClassFromString("UITabBarButton")!) {
                 subview.frame = CGRectMake(CGFloat(index) * btnW, 0, btnW, btnH)
-                index++
+                index += 1
 
-                if index == 2 { index++ }   // 第三个位置空出来, 放"+"按钮
+                if index == 2 { index += 1 }   // 第三个位置空出来, 放"+"按钮
             }
         }
 
@@ -54,7 +54,7 @@ class HBTabBar: UITabBar {
         btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
         btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
         btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: .Highlighted)
-        btn.addTarget(self, action: "composeBtnClick:", forControlEvents: .TouchUpInside)
+        btn.addTarget(self, action: #selector(HBTabBar.composeBtnClick(_:)), forControlEvents: .TouchUpInside)
         return btn
     }()
 

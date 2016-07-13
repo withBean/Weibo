@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置navBar 和 tabBar 外观
         setAppearance()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "wantToChangeRootVc:", name: kNotificationWantToChangeRootVc, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.wantToChangeRootVc(_:)), name: kNotificationWantToChangeRootVc, object: nil)
 
         return true
     }
