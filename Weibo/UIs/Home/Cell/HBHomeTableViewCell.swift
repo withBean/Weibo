@@ -6,6 +6,10 @@
 //  Copyright © 2016年 iceWorks. All rights reserved.
 //
 
+/**
+ 原创微博, 转发微博, 转发/评论/点赞栏; 图片视图在原创微博和转发微博内部判断处理
+ */
+
 import UIKit
 
 class HBHomeTableViewCell: UITableViewCell {
@@ -22,6 +26,31 @@ class HBHomeTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
-        backgroundColor = color_HSB_Random()
+        contentView.addSubview(originalView)
+        contentView.addSubview(repostView)
+        contentView.addSubview(footerView)
+
+        originalView.snp_makeConstraints { (make) in
+            make.top.left.right.equalTo(contentView)
+            make.bottom.equalTo(repostView.snp_top)
+            // temp
+            make.height.equalTo(100)
+        }
+        repostView.snp_makeConstraints { (make) in
+            make.left.right.equalTo(contentView)    // 最好将可变约束(此处top/bottom)设置在永久视图上, 以便更新约束
+            // temp
+            make.height.equalTo(100)
+        }
+        footerView.snp_makeConstraints { (make) in
+            make.top.equalTo(repostView.snp_bottom)
+            make.left.right.bottom.equalTo(contentView)
+            // temp
+            make.height.equalTo(100)
+        }
     }
+
+    // MARK: - lazy load
+    private lazy var originalView: HBOriginalView = HBOriginalView()
+    private lazy var repostView: HBRepostView = HBRepostView()
+    private lazy var footerView: HBFooterView = HBFooterView()
 }
