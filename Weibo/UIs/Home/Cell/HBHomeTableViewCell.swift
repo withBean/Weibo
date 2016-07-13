@@ -14,7 +14,11 @@ import UIKit
 
 class HBHomeTableViewCell: UITableViewCell {
 
-    var viewModel: HBStatusCellViewModel?
+    var viewModel: HBStatusCellViewModel? {
+        didSet {
+            originalView.originalViewModel = viewModel
+        }
+    }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

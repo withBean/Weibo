@@ -12,6 +12,18 @@ let cellMargin: CGFloat = 10
 
 class HBOriginalView: UIView {
 
+    var originalViewModel: HBStatusCellViewModel? {
+        didSet {
+            userIcon.sd_setImageWithURL(originalViewModel?.userIcon)
+            userName.text = originalViewModel?.userName
+            vipIcon.image = originalViewModel?.vipIcon
+            verifyIcon.image = originalViewModel?.verifyIcon
+            releaseTime.text = originalViewModel?.releaseTime
+            releaseSource.text = originalViewModel?.releaseSource
+            blogContent.text = originalViewModel?.blogContent
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
