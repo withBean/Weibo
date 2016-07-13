@@ -22,7 +22,7 @@ class HBHomeViewController: HBBaseTableViewController {
             loadHomeData()
             // 2.展示tableView界面
             // 注册cell (类型.self -> 指定类)
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: HBHomeViewControllerCellReuseIdentifier)
+            tableView.registerClass(HBHomeTableViewCell.self, forCellReuseIdentifier: HBHomeViewControllerCellReuseIdentifier)
 
         } else {
             visitorView.setupVisitorViewInfo("visitordiscover_feed_image_house", message: "关注一些人, 回这里看看有什么惊喜", isRolling: true)
@@ -59,12 +59,12 @@ extension HBHomeViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(HBHomeViewControllerCellReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(HBHomeViewControllerCellReuseIdentifier, forIndexPath: indexPath) as! HBHomeTableViewCell
         // 取消选中状态
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 
         let model = HBStatusListViewModel.sharedInstance.statusList[indexPath.row]
-        cell.textLabel?.text = model.user?.screen_name
+        cell.viewModel = model
 
         return cell
     }

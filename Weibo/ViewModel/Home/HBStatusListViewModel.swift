@@ -12,7 +12,7 @@ class HBStatusListViewModel: NSObject {
 
     static let sharedInstance: HBStatusListViewModel = HBStatusListViewModel()
     // 微博数组
-    var statusList: [HBStatusModel] = [HBStatusModel]()
+    var statusList: [HBStatusCellViewModel] = [HBStatusCellViewModel]()     // 改为viewModel
 
     override init() {
 
@@ -36,7 +36,7 @@ class HBStatusListViewModel: NSObject {
             }
             for status in statuses {
                 let model = HBStatusModel(dict: status)
-                self.statusList.append(model)
+                self.statusList.append(HBStatusCellViewModel(model: model)) // viewModel
             }
 
             success()
