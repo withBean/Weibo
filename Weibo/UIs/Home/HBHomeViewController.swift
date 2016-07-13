@@ -8,6 +8,8 @@
 
 import UIKit
 
+let HBHomeViewControllerCellReuseIdentifier = "HBHomeViewControllerCellReuseIdentifier"
+
 class HBHomeViewController: HBBaseTableViewController {
 
     override func viewDidLoad() {
@@ -19,6 +21,8 @@ class HBHomeViewController: HBBaseTableViewController {
             // 1.加载数据
             loadHomeData()
             // 2.展示tableView界面
+            // 注册cell (类型.self -> 指定类)
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: HBHomeViewControllerCellReuseIdentifier)
 
         } else {
             visitorView.setupVisitorViewInfo("visitordiscover_feed_image_house", message: "关注一些人, 回这里看看有什么惊喜", isRolling: true)
@@ -42,5 +46,26 @@ class HBHomeViewController: HBBaseTableViewController {
                 // 失败
         }
     }
+}
 
+// 隔离代码用 tableView的数据源及代理方法
+extension HBHomeViewController {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return HBStatusListViewModel.sharedInstance.statusList.count
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(HBHomeViewControllerCellReuseIdentifier, forIndexPath: indexPath)
+        // 取消选中状态
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+
+        let model = HBStatusListViewModel.sharedInstance.statusList[indexPath.row]
+        cell.textLabel?.text = model.user?.screen_name
+
+        return cell
+    }
 }

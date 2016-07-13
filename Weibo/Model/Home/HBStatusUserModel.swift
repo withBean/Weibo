@@ -11,10 +11,10 @@ import UIKit
 class HBStatusUserModel: NSObject {
 
     var id: Int = 0;
-    var name: String?
+    var screen_name: String?
     var profile_image_url: String?  // 用户头像地址（中图），50×50像素
-    var mbrank: Int = 0;
-    var verified_type: String?
+    var mbrank: Int = 0
+    var verified_type: Int = 0
 
     init(dict: [String : AnyObject]) {
         super.init()

@@ -29,6 +29,7 @@ class HBOauthViewController: UIViewController, UIWebViewDelegate {
     // 加载授权页面
     private func setupWebView() {
         let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(AppKey)&redirect_uri=\(AppRedirectURI)")
+//        let url = NSURL(string: "https://api.weibo.com/oauth2/authorize")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
         webView.delegate = self

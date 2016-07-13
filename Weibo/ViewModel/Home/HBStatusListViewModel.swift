@@ -14,6 +14,10 @@ class HBStatusListViewModel: NSObject {
     // 微博数组
     var statusList: [HBStatusModel] = [HBStatusModel]()
 
+    override init() {
+
+    }
+
     // 网络加载数据
     func loadData(since_id: Int, max_id: Int, success: ()->(), failure: ()->()) {
         guard let access_token = HBOauthViewModel.sharedInstance.access_token else {

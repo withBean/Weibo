@@ -10,12 +10,12 @@
 		2628892C1D35E99100F1C68E /* HBStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2628892B1D35E99100F1C68E /* HBStatusModel.swift */; };
 		2628892E1D35EEFD00F1C68E /* HBStatusUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2628892D1D35EEFD00F1C68E /* HBStatusUserModel.swift */; };
 		262889301D36092500F1C68E /* HBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2628892F1D36092500F1C68E /* HBStatusListViewModel.swift */; };
+		262889321D3620C700F1C68E /* HBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262889311D3620C700F1C68E /* HBTabBarController.swift */; };
 		263F007B1D22477D00A446E8 /* UIButton+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F00791D22477D00A446E8 /* UIButton+HBExtension.swift */; };
 		263F007C1D22477D00A446E8 /* UILabel+HBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F007A1D22477D00A446E8 /* UILabel+HBExtension.swift */; };
 		2661678D1D1EA30D00F99262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661678C1D1EA30D00F99262 /* AppDelegate.swift */; };
 		266167921D1EA30D00F99262 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266167901D1EA30D00F99262 /* Main.storyboard */; };
 		266167941D1EA30D00F99262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266167931D1EA30D00F99262 /* Assets.xcassets */; };
-		266167BB1D1EA5C400F99262 /* HBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167A11D1EA5C400F99262 /* HBTabBarController.swift */; };
 		266167BC1D1EA5C400F99262 /* HBFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167AB1D1EA5C400F99262 /* HBFindViewController.swift */; };
 		266167BD1D1EA5C400F99262 /* HBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167AD1D1EA5C400F99262 /* HBHomeViewController.swift */; };
 		266167BE1D1EA5C400F99262 /* HBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266167B01D1EA5C400F99262 /* HBMessageViewController.swift */; };
@@ -78,6 +78,7 @@
 		2628892B1D35E99100F1C68E /* HBStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBStatusModel.swift; sourceTree = "<group>"; };
 		2628892D1D35EEFD00F1C68E /* HBStatusUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBStatusUserModel.swift; sourceTree = "<group>"; };
 		2628892F1D36092500F1C68E /* HBStatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBStatusListViewModel.swift; sourceTree = "<group>"; };
+		262889311D3620C700F1C68E /* HBTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBTabBarController.swift; sourceTree = "<group>"; };
 		263F00791D22477D00A446E8 /* UIButton+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+HBExtension.swift"; sourceTree = "<group>"; };
 		263F007A1D22477D00A446E8 /* UILabel+HBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+HBExtension.swift"; sourceTree = "<group>"; };
 		266167891D1EA30D00F99262 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +86,6 @@
 		266167911D1EA30D00F99262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		266167931D1EA30D00F99262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266167981D1EA30D00F99262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		266167A11D1EA5C400F99262 /* HBTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HBTabBarController.swift; path = ../../Common/HBTabBarController.swift; sourceTree = "<group>"; };
 		266167AB1D1EA5C400F99262 /* HBFindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBFindViewController.swift; sourceTree = "<group>"; };
 		266167AD1D1EA5C400F99262 /* HBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBHomeViewController.swift; sourceTree = "<group>"; };
 		266167B01D1EA5C400F99262 /* HBMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBMessageViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +221,7 @@
 		2661679E1D1EA5C400F99262 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				262889311D3620C700F1C68E /* HBTabBarController.swift */,
 				266167C21D1EA70F00F99262 /* HBTabBar.swift */,
 				266167C01D1EA6ED00F99262 /* HBConstant.swift */,
 				26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */,
@@ -400,7 +401,6 @@
 		266167C51D1EB0B000F99262 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
-				266167A11D1EA5C400F99262 /* HBTabBarController.swift */,
 				266167C61D1EB0B000F99262 /* NSData+ImageContentType.h */,
 				266167C71D1EB0B000F99262 /* NSData+ImageContentType.m */,
 				266167C81D1EB0B000F99262 /* SDImageCache.h */,
@@ -601,7 +601,6 @@
 				266168261D1EB1F300F99262 /* SVProgressHUD.m in Sources */,
 				266167EA1D1EB0B000F99262 /* SDWebImagePrefetcher.m in Sources */,
 				266168011D1EB0CF00F99262 /* AFSecurityPolicy.m in Sources */,
-				266167BB1D1EA5C400F99262 /* HBTabBarController.swift in Sources */,
 				2690970B1D35DC2D000F3126 /* EdgeInsets.swift in Sources */,
 				266167BC1D1EA5C400F99262 /* HBFindViewController.swift in Sources */,
 				266168271D1EB1F300F99262 /* SVRadialGradientLayer.m in Sources */,
@@ -638,6 +637,7 @@
 				266167C31D1EA70F00F99262 /* HBTabBar.swift in Sources */,
 				266167EE1D1EB0B000F99262 /* UIImageView+HighlightedWebCache.m in Sources */,
 				2690970A1D35DC2D000F3126 /* Debugging.swift in Sources */,
+				262889321D3620C700F1C68E /* HBTabBarController.swift in Sources */,
 				266168001D1EB0CF00F99262 /* AFNetworkReachabilityManager.m in Sources */,
 				266168241D1EB1F300F99262 /* SVProgressAnimatedView.m in Sources */,
 				2690970D1D35DC2D000F3126 /* LayoutConstraint.swift in Sources */,
