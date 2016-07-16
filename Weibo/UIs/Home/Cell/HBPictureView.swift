@@ -19,9 +19,9 @@ class HBPictureView: UICollectionView, UICollectionViewDataSource, UICollectionV
     var viewModel: HBStatusCellViewModel? {
         didSet {
             // 配图的尺寸, 由图片数量决定
-            let imgViewSize = calculateSize()
+            let picViewSize = calculateSize()
             self.snp_updateConstraints { (make) in
-                make.size.equalTo(imgViewSize)
+                make.size.equalTo(picViewSize)
             }
             // 刷新数据
             reloadData()
@@ -55,8 +55,36 @@ class HBPictureView: UICollectionView, UICollectionViewDataSource, UICollectionV
 
     // MARK: - 计算配图尺寸
     private func calculateSize() -> CGSize {
+        /** 图片大小的计算逻辑
+         1. 1张图片 实际图片大小(控制宽高)
+         2. 4张图片 2*2
+         3. 其他图片数量 1*3 2*3 3*3
+         */
+        guard let picCount = viewModel?.pic_urls?.count else {
+            return CGSizeZero
+        }
 
-        return CGSizeMake(300, 300)
+        if picCount == 0 {
+            return CGSizeZero
+        }
+
+        if picCount == 1 {
+            // temp
+            return CGSizeMake(itemWH, itemWH)
+
+        } else {
+            // 由于cell存在重用, 需要把上边改过的再恢复为原来的
+//            flowLayout.itemSize = CGSizeMake(itemWH, itemWH)
+        }
+
+        if picCount == 4 {
+            return CGSizeMake(itemWH * 2 + itemMargin, itemWH * 2 + itemMargin)
+        }
+
+        // 其它张数, 统一返回默认宽高 (按9张图计算)
+        let row = (picCount - 1) / 3 + 1;
+        return CGSizeMake(kScreenWidth - 2 * cellMargin, (itemWH + itemMargin) * CGFloat(row))
+//        return CGSizeMake(300, 300)
     }
 
     // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
