@@ -21,6 +21,8 @@ class HBOriginalView: UIView {
             releaseTime.text = viewModel?.releaseTime
             releaseSource.text = viewModel?.releaseSource
             blogContent.text = viewModel?.blogContent
+            // 传递pictureView数据!
+            pictureView.viewModel = viewModel
         }
     }
 
@@ -82,8 +84,6 @@ class HBOriginalView: UIView {
         pictureView.snp_makeConstraints { (make) in
             make.top.equalTo(blogContent.snp_bottom).offset(cellMargin)
             make.left.equalTo(blogContent)    // 左cellMargin, 右边根据宽度
-            // temp
-            make.width.height.equalTo(itemWH * 3 + itemMargin * 2)
         }
 
         // 自动计算行高 注意底部

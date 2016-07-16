@@ -21,7 +21,7 @@ class HBStatusModel: NSObject {
 
     var user: HBStatusUserModel?
     var retweeted_status: HBStatusModel?
-    var pic_urls: [HBStatusPictureViewModel]?
+    var pic_urls: [HBStatusPictureModel]?
 
     // 构造函数
     init(dict: [String : AnyObject]) {
@@ -38,19 +38,32 @@ class HBStatusModel: NSObject {
             retweeted_status = HBStatusModel(dict: retweeted_statusDict)
         }
 
-        // pic_urls嵌套数组
+        // pic_urls嵌套数组 (MVC)
         if let pic_urlsArr = dict["pic_urls"] as? [[String : AnyObject]] {
-            // 一定要注意: 属性数组要先完成初始化
-            pic_urls = [HBStatusPictureViewModel]()
+            // 一定要注意: 属性数组要先完成初始化 /* fatal error: NSArray element failed to match the Swift Array Element type */
+            pic_urls = [HBStatusPictureModel]()
 
             // 遍历数组, 字典转模型
             for pic_urlDict in pic_urlsArr {
                 let picModel = HBStatusPictureModel(dict: pic_urlDict)
-                let viewModel = HBStatusPictureViewModel(model: picModel)
                 // 添加到数组
-                pic_urls?.append(viewModel)
+                pic_urls?.append(picModel)
             }
         }
+
+//        // pic_urls嵌套数组 (MVVM)
+//        if let pic_urlsArr = dict["pic_urls"] as? [[String : AnyObject]] {
+//            // 一定要注意: 属性数组要先完成初始化
+//            pic_urls = [HBStatusPictureViewModel]()
+//
+//            // 遍历数组, 字典转模型
+//            for pic_urlDict in pic_urlsArr {
+//                let picModel = HBStatusPictureModel(dict: pic_urlDict)
+//                let viewModel = HBStatusPictureViewModel(model: picModel)
+//                // 添加到数组
+//                pic_urls?.append(viewModel)
+//            }
+//        }
     }
 
     // 防崩溃

@@ -14,9 +14,19 @@ let colCount = 3
 let itemMargin: CGFloat = 5
 let itemWH: CGFloat = (kScreenWidth - cellMargin * 2 - itemMargin * (CGFloat(colCount) - 1)) / CGFloat(colCount)
 
-class HBPictureView: UICollectionView {
+class HBPictureView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var pic_urls: [HBStatusPictureViewModel]?
+    var viewModel: HBStatusCellViewModel? {
+        didSet {
+            // 配图的尺寸, 由图片数量决定
+            let imgViewSize = calculateSize()
+            self.snp_updateConstraints { (make) in
+                make.size.equalTo(imgViewSize)
+            }
+            // 刷新数据
+            reloadData()
+        }
+    }
 
     /* UICollectionView must be initialized with a non-nil layout parameter */
     var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -43,19 +53,21 @@ class HBPictureView: UICollectionView {
         flowLayout.minimumLineSpacing = itemMargin
     }
 
-    // MARK: - lazy load
-}
+    // MARK: - 计算配图尺寸
+    private func calculateSize() -> CGSize {
 
-extension HBPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
+        return CGSizeMake(300, 300)
+    }
 
+    // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pic_urls?.count ?? 0
+        return viewModel?.pic_urls?.count ?? 0
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(HBPictureViewCellReuseID, forIndexPath: indexPath) as! HBPictureViewCell
         cell.backgroundColor = color_HSB_Random()
-        cell.viewModel = pic_urls![indexPath.item]
+        cell.model = viewModel?.pic_urls![indexPath.item]   // MVVM -> MVC
 
         return cell
     }
@@ -63,9 +75,16 @@ extension HBPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
 
 class HBPictureViewCell: UICollectionViewCell {
 
-    var viewModel: HBStatusPictureViewModel? {
+//    var viewModel: HBStatusPictureViewModel? {  // (MVVM, 需将model中pic_urls改为viewModel才可以, 此处使用MVC如下)
+//        didSet {
+//            picImgView.sd_setImageWithURL(viewModel?.picURL)
+//        }
+//    }
+    var model: HBStatusPictureModel? {      // 此处用的是MVC, 否则要改很多地方
         didSet {
-            picImgView.sd_setImageWithURL(viewModel?.picURL)
+            if let pic_url = model?.thumbnail_pic {
+                picImgView.sd_setImageWithURL(NSURL(string: pic_url))
+            }
         }
     }
 
@@ -79,6 +98,7 @@ class HBPictureViewCell: UICollectionViewCell {
     }
 
     private func setupUI() {
+        backgroundColor = UIColor.redColor()
         contentView.addSubview(picImgView)
         picImgView.snp_makeConstraints { (make) in
             make.edges.equalTo(contentView)
