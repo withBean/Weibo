@@ -72,6 +72,8 @@
 		2690970E1D35DC2D000F3126 /* SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269097011D35DC2D000F3126 /* SnapKit.swift */; };
 		2690970F1D35DC2D000F3126 /* View+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269097021D35DC2D000F3126 /* View+SnapKit.swift */; };
 		269097101D35DC2D000F3126 /* ViewController+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269097031D35DC2D000F3126 /* ViewController+SnapKit.swift */; };
+		26B561B81D3A1A9C0074B451 /* HBStatusPictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B561B71D3A1A9C0074B451 /* HBStatusPictureModel.swift */; };
+		26B561BA1D3A22CB0074B451 /* HBStatusPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B561B91D3A22CB0074B451 /* HBStatusPictureViewModel.swift */; };
 		26C2D0511D1EB7730068B6FE /* HBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */; };
 		26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */; };
 		26D4682A1D268577007849B3 /* HBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D468291D268577007849B3 /* HBComposeView.swift */; };
@@ -177,6 +179,8 @@
 		269097011D35DC2D000F3126 /* SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapKit.swift; sourceTree = "<group>"; };
 		269097021D35DC2D000F3126 /* View+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+SnapKit.swift"; sourceTree = "<group>"; };
 		269097031D35DC2D000F3126 /* ViewController+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+SnapKit.swift"; sourceTree = "<group>"; };
+		26B561B71D3A1A9C0074B451 /* HBStatusPictureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBStatusPictureModel.swift; sourceTree = "<group>"; };
+		26B561B91D3A22CB0074B451 /* HBStatusPictureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBStatusPictureViewModel.swift; sourceTree = "<group>"; };
 		26C2D0501D1EB7730068B6FE /* HBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBBaseTableViewController.swift; sourceTree = "<group>"; };
 		26C2D0521D1EBD640068B6FE /* HBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBVisitorView.swift; sourceTree = "<group>"; };
 		26D468291D268577007849B3 /* HBComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBComposeView.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 			children = (
 				2628892B1D35E99100F1C68E /* HBStatusModel.swift */,
 				2628892D1D35EEFD00F1C68E /* HBStatusUserModel.swift */,
+				26B561B71D3A1A9C0074B451 /* HBStatusPictureModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 			children = (
 				2628892F1D36092500F1C68E /* HBStatusListViewModel.swift */,
 				262889361D36307000F1C68E /* HBStatusCellViewModel.swift */,
+				26B561B91D3A22CB0074B451 /* HBStatusPictureViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -620,11 +626,13 @@
 				2690970F1D35DC2D000F3126 /* View+SnapKit.swift in Sources */,
 				266167E51D1EB0B000F99262 /* SDWebImageCompat.m in Sources */,
 				266167EB1D1EB0B000F99262 /* UIButton+WebCache.m in Sources */,
+				26B561B81D3A1A9C0074B451 /* HBStatusPictureModel.swift in Sources */,
 				269097071D35DC2D000F3126 /* ConstraintItem.swift in Sources */,
 				266167ED1D1EB0B000F99262 /* UIImage+MultiFormat.m in Sources */,
 				266167F01D1EB0B000F99262 /* UIView+WebCacheOperation.m in Sources */,
 				26C2D0531D1EBD640068B6FE /* HBVisitorView.swift in Sources */,
 				26EF102C1D2657DB009783F4 /* UIImage+HBExtension.swift in Sources */,
+				26B561BA1D3A22CB0074B451 /* HBStatusPictureViewModel.swift in Sources */,
 				266168261D1EB1F300F99262 /* SVProgressHUD.m in Sources */,
 				266167EA1D1EB0B000F99262 /* SDWebImagePrefetcher.m in Sources */,
 				266168011D1EB0CF00F99262 /* AFSecurityPolicy.m in Sources */,

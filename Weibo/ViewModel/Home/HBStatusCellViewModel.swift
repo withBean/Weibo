@@ -100,4 +100,16 @@ class HBStatusCellViewModel: NSObject {
         }
         return "@" + repostUserName + ":" + repostText    // 也可 "@\(repostUserName)\(repostText)"
     }
+
+//    // MARK: - 微博图片的数据处理
+//    var pic_urls: [HBStatusPictureModel]? {
+//        return model?.pic_urls
+//    }
+//
+//    var picURL: NSURL? {
+//        for pic_url: HBStatusPictureModel in pic_urls ?? [HBStatusPictureModel]() {
+//            return NSURL(string: pic_url.thumbnail_pic!)
+//        }
+//        return NSURL()
+//    }
 }

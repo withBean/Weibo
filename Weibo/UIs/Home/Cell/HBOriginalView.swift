@@ -43,6 +43,8 @@ class HBOriginalView: UIView {
         addSubview(releaseTime)
         addSubview(releaseSource)
         addSubview(blogContent)
+        // pic
+        addSubview(pictureView)
 
         // 圆角
         userIcon.layer.cornerRadius = 20
@@ -77,10 +79,16 @@ class HBOriginalView: UIView {
             make.left.equalTo(self).offset(cellMargin)
             make.right.equalTo(self).offset(-cellMargin)
         }
+        pictureView.snp_makeConstraints { (make) in
+            make.top.equalTo(blogContent.snp_bottom).offset(cellMargin)
+            make.left.equalTo(blogContent)    // 左cellMargin, 右边根据宽度
+            // temp
+            make.width.height.equalTo(itemWH * 3 + itemMargin * 2)
+        }
 
         // 自动计算行高 注意底部
         self.snp_makeConstraints { (make) in
-            make.bottom.equalTo(blogContent.snp_bottom)
+            make.bottom.equalTo(pictureView)
         }
     }
 
@@ -92,4 +100,6 @@ class HBOriginalView: UIView {
     private lazy var releaseTime: UILabel = UILabel(text: "发布时间", fontSize: 13.0, textColor: .grayColor(), textAlignment: .Left, numberOfLines: 1)
     private lazy var releaseSource: UILabel = UILabel(text: "发布来源", fontSize: 13.0, textColor: .grayColor(), textAlignment: .Left, numberOfLines: 1)
     private lazy var blogContent: UILabel = UILabel(text: "这里是微博正文", fontSize: 16.0, textColor: .blackColor(), textAlignment: .Left, numberOfLines: 0)
+    // 配图
+    private lazy var pictureView: HBPictureView = HBPictureView()
 }

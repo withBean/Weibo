@@ -15,14 +15,13 @@ class HBStatusModel: NSObject {
     var text: String?
     var source: String?
 
-    var thumbnail_pic: String?
-
     var reposts_count: Int = 0
     var comments_count: Int = 0
     var attitudes_count: Int = 0
 
     var user: HBStatusUserModel?
     var retweeted_status: HBStatusModel?
+    var pic_urls: [HBStatusPictureViewModel]?
 
     // 构造函数
     init(dict: [String : AnyObject]) {
@@ -37,6 +36,20 @@ class HBStatusModel: NSObject {
         // retweeted_status嵌套字典转模型
         if let retweeted_statusDict = dict["retweeted_status"] as? [String : AnyObject] {
             retweeted_status = HBStatusModel(dict: retweeted_statusDict)
+        }
+
+        // pic_urls嵌套数组
+        if let pic_urlsArr = dict["pic_urls"] as? [[String : AnyObject]] {
+            // 一定要注意: 属性数组要先完成初始化
+            pic_urls = [HBStatusPictureViewModel]()
+
+            // 遍历数组, 字典转模型
+            for pic_urlDict in pic_urlsArr {
+                let picModel = HBStatusPictureModel(dict: pic_urlDict)
+                let viewModel = HBStatusPictureViewModel(model: picModel)
+                // 添加到数组
+                pic_urls?.append(viewModel)
+            }
         }
     }
 
